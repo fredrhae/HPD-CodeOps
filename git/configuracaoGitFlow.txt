@@ -1,0 +1,12 @@
+Instalação do git flow:
+
+sudo apt-get update
+sudo apt-get install git-flow
+
+Comandos para configurar git flow
+git flow init
+
+Comando para inicializar uma feature
+git flow feature start git
+
+Vai fazendo os commits, quando finalizar dá-lhe o finish
