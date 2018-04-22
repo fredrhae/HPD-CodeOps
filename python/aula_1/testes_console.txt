@@ -1,0 +1,58 @@
+>>> 
+>>> 
+>>> 
+>>> nome = 'Hidelbrando'
+>>> nome
+'Hidelbrando'
+>>> nome *10
+'HidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrando'
+>>> 
+>>> teste = 4.0
+>>> teste
+4.0
+>>> teste + nome
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'float' and 'str'
+>>> teste * nome
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'float'
+>>> teste = 4
+>>> teste * nome
+'HidelbrandoHidelbrandoHidelbrandoHidelbrando'
+>>> 2 ** 4
+16
+>>> 2*4+5-10
+3
+>>> print('Hidelbrando Juvarinka')
+Hidelbrando Juvarinka
+>>> print("Hidelbrando Juvarinka")
+Hidelbrando Juvarinka
+>>> print("Qual é o seu nome?")
+Qual é o seu nome?
+>>> nome = input
+>>> Hidelbrando da Silva
+  File "<stdin>", line 1
+    Hidelbrando da Silva
+                 ^
+SyntaxError: invalid syntax
+>>> nome = input()
+Hidelbrando da Silva
+>>> print("Prazer em te conhecer, " + nome )
+Prazer em te conhecer, Hidelbrando da Silva
+>>> print(len(nome))
+20
+>>> idade = input()
+30
+>>> print(idade + "?! Tu é velho hein?")
+30?! Tu é velho hein?
+>>> print('Você irá fazer ' + str(int(idade)) + ' em um ano')
+Você irá fazer 30 em um ano
+>>> print('Você irá fazer ' + str(int(idade)) + 1 + ' em um ano')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: Can't convert 'int' object to str implicitly
+>>> print('Você irá fazer ' + str(int(idade) + 1) + ' em um ano')
+Você irá fazer 31 em um ano
+

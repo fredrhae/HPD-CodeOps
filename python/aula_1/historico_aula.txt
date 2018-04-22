@@ -1,0 +1,473 @@
+odeOps git:(aula/python) ✗ ls
+ansible  chef    git     graylog  linux     prometheus  README.md
+beat     docker  gitlab  jenkins  markdown  python      ruby
+➜  HPD-CodeOps git:(aula/python) ✗ cd python 
+➜  python git:(aula/python) ✗ ls
+comandos  venv
+➜  python git:(aula/python) ✗ source venv/bin/activate
+(venv) ➜  python git:(aula/python) ✗ 
+(venv) ➜  python git:(aula/python) ✗ 
+(venv) ➜  python git:(aula/python) ✗ python
+Python 3.5.2 (default, Nov 23 2017, 16:37:01) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> 
+>>> 
+>>> nome = 'Hidelbrando'
+>>> nome
+'Hidelbrando'
+>>> nome *10
+'HidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrandoHidelbrando'
+>>> 
+>>> teste = 4.0
+>>> teste
+4.0
+>>> teste + nome
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'float' and 'str'
+>>> teste * nome
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'float'
+>>> teste = 4
+>>> teste * nome
+'HidelbrandoHidelbrandoHidelbrandoHidelbrando'
+>>> 2 ** 4
+16
+>>> 2*4+5-10
+3
+>>> print('Hidelbrando Juvarinka')
+Hidelbrando Juvarinka
+>>> print("Hidelbrando Juvarinka")
+Hidelbrando Juvarinka
+>>> print("Qual é o seu nome?")
+Qual é o seu nome?
+>>> nome = input
+>>> Hidelbrando da Silva
+  File "<stdin>", line 1
+    Hidelbrando da Silva
+                 ^
+SyntaxError: invalid syntax
+>>> nome = input()
+Hidelbrando da Silva
+>>> print("Prazer em te conhecer, " + nome )
+Prazer em te conhecer, Hidelbrando da Silva
+>>> print(len(nome))
+20
+>>> idade = input()
+30
+>>> print(idade + "?! Tu é velho hein?")
+30?! Tu é velho hein?
+>>> print('Você irá fazer ' + str(int(idade)) + ' em um ano')
+Você irá fazer 30 em um ano
+>>> print('Você irá fazer ' + str(int(idade)) + 1 + ' em um ano')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: Can't convert 'int' object to str implicitly
+>>> print('Você irá fazer ' + str(int(idade) + 1) + ' em um ano')
+Você irá fazer 31 em um ano
+>>> 
+>>> 
+>>> 44 === '44'
+  File "<stdin>", line 1
+    44 === '44'
+         ^
+SyntaxError: invalid syntax
+>>> nome
+'Hidelbrando da Silva'
+>>> idade
+'30'
+>>> nome === idade
+  File "<stdin>", line 1
+    nome === idade
+           ^
+SyntaxError: invalid syntax
+>>> 2teste = 'vixe'
+  File "<stdin>", line 1
+    2teste = 'vixe'
+         ^
+SyntaxError: invalid syntax
+>>> 
+>>> 
+>>> supermario = ["Mario", "Luigi", "Toad", "Yoshi","Princesa", "Bowser"]
+>>> type(supermario)
+<class 'list'>
+>>> supermario[0]
+'Mario'
+>>> supermario[-1]
+'Bowser'
+>>> supermario[-3]
+'Yoshi'
+>>> supermario[1:3]
+['Luigi', 'Toad']
+>>> supermario.size
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list' object has no attribute 'size'
+>>> supermario.append("Wario")
+>>> supermario
+['Mario', 'Luigi', 'Toad', 'Yoshi', 'Princesa', 'Bowser', 'Wario']
+>>> 'Princesa' in supermario
+True
+>>> print(supermario.index('Princesa'))
+4
+>>> print(supermario[4])
+Princesa
+>>> supermario.insert(0,"Spike")
+>>> supermario.insert(2,"Lakitus")
+>>> supermario
+['Spike', 'Mario', 'Lakitus', 'Luigi', 'Toad', 'Yoshi', 'Princesa', 'Bowser', 'Wario']
+>>> sorted(supermario)
+['Bowser', 'Lakitus', 'Luigi', 'Mario', 'Princesa', 'Spike', 'Toad', 'Wario', 'Yoshi']
+>>> supermario.sort()
+>>> supermario
+['Bowser', 'Lakitus', 'Luigi', 'Mario', 'Princesa', 'Spike', 'Toad', 'Wario', 'Yoshi']
+>>> for personagem in supermario:
+...     print("Passando pelo personagem: %s" %personagem)
+... 
+Passando pelo personagem: Bowser
+Passando pelo personagem: Lakitus
+Passando pelo personagem: Luigi
+Passando pelo personagem: Mario
+Passando pelo personagem: Princesa
+Passando pelo personagem: Spike
+Passando pelo personagem: Toad
+Passando pelo personagem: Wario
+Passando pelo personagem: Yoshi
+>>> len(supermario)
+9
+>>> supermario.remove("Bowser")
+>>> len(supermario)
+8
+>>> supermario
+['Lakitus', 'Luigi', 'Mario', 'Princesa', 'Spike', 'Toad', 'Wario', 'Yoshi']
+>>> supermario.pop()
+'Yoshi'
+>>> supermario.pop()
+'Wario'
+>>> supermario
+['Lakitus', 'Luigi', 'Mario', 'Princesa', 'Spike', 'Toad']
+>>> supermario.pop(0)
+'Lakitus'
+>>> supermario
+['Luigi', 'Mario', 'Princesa', 'Spike', 'Toad']
+>>> supermario.pop(3)
+'Spike'
+>>> supermario
+['Luigi', 'Mario', 'Princesa', 'Toad']
+>>> del supermario[0]
+>>> supermario
+['Mario', 'Princesa', 'Toad']
+>>> supermario.reverse()
+>>> supermario
+['Toad', 'Princesa', 'Mario']
+>>> supermario.append('Mario')
+>>> supermario
+['Toad', 'Princesa', 'Mario', 'Mario']
+>>> supermario.count('Mario')
+2
+>>> help(supermario)
+
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> quit()
+(venv) ➜  python git:(aula/python) ✗ 
+(venv) ➜  python git:(aula/python) ✗ 
+(venv) ➜  python git:(aula/python) ✗ 
+(venv) ➜  python git:(aula/python) ✗ pip install bpython
+Collecting bpython
+  Downloading https://files.pythonhosted.org/packages/71/f7/6268d9f0f7c03f52ff47747c40a59ffee0b67f6751ce0ff8f07a20562680/bpython-0.17.1-py2.py3-none-any.whl (182kB)
+Successfully installed blessings-1.6.1 bpython-0.17.1 certifi-2018.4.16 chardet-3.0.4 curtsies-0.3.0 greenlet-0.4.13 idna-2.6 pygments-2.2.0 requests-2.18.4 six-1.11.0 typing-3.6.4 urllib3-1.22 wcwidth-0.1.7
+You are using pip version 8.1.1, however version 10.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+(venv) ➜  python git:(aula/python) ✗ bpython
+bpython version 0.17.1 on top of Python 3.5.2 /home/fredRhae/Documents/codeops/HPD-CodeOps/python/venv/bin/python3
+>>> supermario = ["Mario","Luigi","Toad"]
+>>> supermario
+['Mario', 'Luigi', 'Toad']
+>>> for personagem in supermario
+  File "<input>", line 1
+    for personagem in supermario
+                               ^
+SyntaxError: invalid syntax
+>>> for personagem in supermario:
+...     print("Imprimindo os personagens: %s" % personagem)
+...     
+... 
+Imprimindo os personagens: Mario
+Imprimindo os personagens: Luigi
+Imprimindo os personagens: Toad
+>>> supermario
+['Mario', 'Luigi', 'Toad']
+>>> supermario.append("Bowser")
+>>> 
+>>> 
+>>> supermario.reverse()
+>>> supermario
+['Bowser', 'Toad', 'Luigi', 'Mario']
+>>> supermario.sort(seila,False)
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    supermario.sort(seila,False)
+NameError: name 'seila' is not defined
+>>> supermario.count()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    supermario.count()
+TypeError: count() takes exactly one argument (0 given)
+>>> supermario.count('Mario')
+1
+>>> supermario.pop()
+'Mario'
+>>> supermario.insert(0,'Mario')
+>>> supermario
+['Mario', 'Bowser', 'Toad', 'Luigi']
+>>> new_supermario = supermario.copy()
+>>> new_supermario
+['Mario', 'Bowser', 'Toad', 'Luigi']
+>>> new_supermario.index('Toad')
+2
+>>> new_supermario.extend()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    new_supermario.extend()
+TypeError: extend() takes exactly one argument (0 given)
+>>> new_supermario.extend(iter(supermario))
+>>> new_supermario
+['Mario', 'Bowser', 'Toad', 'Luigi', 'Mario', 'Bowser', 'Toad', 'Luigi']
+>>> cadastro = {'Nome':'Jefferson','Idade':34,'Sexo':'Masculino'}
+>>> cadastro['Pais']='Brasil'
+>>> cadastro
+{'Idade': 34, 'Sexo': 'Masculino', 'Nome': 'Jefferson', 'Pais': 'Brasil'}
+>>> print(cadastro['Idade'])
+34
+>>> print(cadastro['Nome'])
+Jefferson
+>>> print(cadastro['Pais'])
+Brasil
+>>> print(cadastro.keys())
+dict_keys(['Idade', 'Sexo', 'Nome', 'Pais'])
+>>> print(cadastro.values())
+dict_values([34, 'Masculino', 'Jefferson', 'Brasil'])
+>>> print(cadastro.values)
+<built-in method values of dict object at 0x7f3420216ac8>
+>>> print(cadastro.values())
+dict_values([34, 'Masculino', 'Jefferson', 'Brasil'])
+>>> for valor in cadastro:
+... 
+... 
+KeyboardInterrupt
+>>> 
+KeyboardInterrupt
+>>> 
+>>> for valor in cadastro.values():
+...     print(valor)
+...     
+... 
+34
+Masculino
+Jefferson
+Brasil
+>>> for valor in cadastro.keys():
+... for valor in cadastro.keys():
+  File "<bpython-input-45>", line 2
+    for valor in cadastro.keys():
+      ^
+IndentationError: expected an indented block
+>>> 
+KeyboardInterrupt
+>>> for chave in cadastro.keys():
+...     print(chave)
+...     
+... 
+Idade
+Sexo
+Nome
+Pais
+>>> for chave,valor in cadastro.items():
+...     print('%s : %s' %(chave,valor))
+...     
+... 
+Idade : 34
+Sexo : Masculino
+Nome : Jefferson
+Pais : Brasil
+>>> del cadastro['Sexo']
+>>> cadastro
+{'Idade': 34, 'Nome': 'Jefferson', 'Pais': 'Brasil'}
+>>> len(cadastro)
+3
+>>> 'Nome' in cadastro
+True
+>>> 'Sexo' in cadastro
+False
+>>> for chave,valor in cadastro.items():
+...     print('%s => %s' % (chave, valor))
+...     
+... 
+Idade => 34
+Nome => Jefferson
+Pais => Brasil
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> exit()
+(None,)
+(venv) ➜  python git:(aula/python) ✗ pip install pprint
+Collecting pprint
+  Downloading https://files.pythonhosted.org/packages/99/12/b6383259ef85c2b942ab9135f322c0dce83fdca8600d87122d2b0181451f/pprint-0.1.tar.gz
+Building wheels for collected packages: pprint
+  Running setup.py bdist_wheel for pprint ... error
+  Complete output from command /home/fredRhae/Documents/codeops/HPD-CodeOps/python/venv/bin/python3 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-pgb70xk8/pprint/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" bdist_wheel -d /tmp/tmp3hk9k8yspip-wheel- --python-tag cp35:
+  usage: -c [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+     or: -c --help [cmd1 cmd2 ...]
+     or: -c --help-commands
+     or: -c cmd --help
+  
+  error: invalid command 'bdist_wheel'
+  
+  ----------------------------------------
+  Failed building wheel for pprint
+  Running setup.py clean for pprint
+Failed to build pprint
+Installing collected packages: pprint
+  Running setup.py install for pprint ... done
+Successfully installed pprint-0.1
+You are using pip version 8.1.1, however version 10.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+(venv) ➜  python git:(aula/python) ✗ bpython            
+bpython version 0.17.1 on top of Python 3.5.2 /home/fredRhae/Documents/codeops/HPD-CodeOps/python/venv/bin/python3
+>>> import pprint
+>>> cadastro = {'Nome':'Jefferson','Idade':34,'Sexo':'Masculino'}
+>>> pprint(cadastro)
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    pprint(cadastro)
+TypeError: 'module' object is not callable
+>>> pprint.print(cadastro)
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    pprint.print(cadastro)
+AttributeError: module 'pprint' has no attribute 'print'
+>>> pprint.pprint(cadastro)
+{'Idade': 34, 'Nome': 'Jefferson', 'Sexo': 'Masculino'}
+>>> print(cadastro)
+{'Idade': 34, 'Nome': 'Jefferson', 'Sexo': 'Masculino'}
+>>> for k,v in cadastro.items():
+...     pprint.pprint('%s => %s' % (k,v))
+...     
+... 
+'Idade => 34'
+'Nome => Jefferson'
+'Sexo => Masculino'
+>>> for k,v in cadastro.items():
+...     pprint.pprint(%s => %s % (k,v))
+  File "<input>", line 2
+    pprint.pprint(%s => %s % (k,v))
+                  ^
+SyntaxError: invalid syntax
+>>>     pprint.pprint("%s => %s" % (k,v))
+  File "<bpython-input-14>", line 1
+    pprint.pprint("%s => %s" % (k,v))
+    ^
+IndentationError: unexpected indent
+>>> for k,v in cadastro.items():
+...     pprint.pprint("%s => %s" % (k,v))
+...     
+... 
+'Idade => 34'
+'Nome => Jefferson'
+'Sexo => Masculino'
+>>> novos_dados = {"Pais":"Brasil","Cidade":"Sao Paulo"}
+>>> cadastro.update(novos_dados)
+>>> cadastro
+{'Pais': 'Brasil', 'Idade': 34, 'Cidade': 'Sao Paulo', 'Nome': 'Jefferson', 'Sexo': 'Masculino'}
+>>> cadastro.popitem()
+('Pais', 'Brasil')
+>>> cadastro
+{'Idade': 34, 'Cidade': 'Sao Paulo', 'Nome': 'Jefferson', 'Sexo': 'Masculino'}
+>>> cadastro.pop('Idade')
+34
+>>> cadastro
+{'Cidade': 'Sao Paulo', 'Nome': 'Jefferson', 'Sexo': 'Masculino'}
+>>> cadastro.popitem()
+('Cidade', 'Sao Paulo')
+>>> cadastro.popitem()
+('Nome', 'Jefferson')
+>>> cadastro.popitem()
+('Sexo', 'Masculino')
+>>> cadastro.popitem()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    cadastro.popitem()
+KeyError: 'popitem(): dictionary is empty'
+>>> cadastro
+{}
+>>> len(cadastro)
+0
+>>> for c in range(5,10):
+...     print(c)
+...     
+... 
+5
+6
+7
+8
+9
+>>> for c in range(5,10):
+...     if c == 3:
+...         continue
+...         
+...     print(c)
+...     
+... 
+5
+6
+7
+8
+9
+>>> for c in range(1,10):
+...     if c == 3:
+...         continue
+...         
+...     print(c)
+...     
+... 
+1
+2
+4
+5
+6
+7
+8
+9
+>>> score = input("Qual a sua nota?")
+Qual a sua nota?8
+>>> score
+'8'
+>>> score = int(score)
+>>> score
+8
+>>> type(score)
+<class 'int'>
+>>> score
+8
+>>> score
+8
+>>> if score >= 8:
+...     nota = 'A'
+...     
+... else:
+...     if score >= 7:
+...         nota = 'B'
+...         
+...     else:
+...         nota = 'C'
+...         
+...     
+...     print("Sua nota é %s" % nota))
+  File "<input>", line 12
+    print("Sua nota é %s" % nota))
+                                 
+
