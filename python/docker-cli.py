@@ -29,6 +29,7 @@ def listar(self):
     try:
         client = docker.from_env()
         get_all = client.containers.list()
+        print("get all: %s" % get_all)
         for cada_container in get_all:
            conectando = client.containers.get(cada_container.id)
            print("O container %s utiliza a imagem %s e está rodando o comando %s" % (conectando.short_id, conectando.attrs['Config']['Image'], conectando.attrs['Config']['Cmd']))
@@ -45,15 +46,40 @@ def procurar_container(args):
         get_all = client.containers.list()
         for cada_container in get_all:
            container = client.containers.get(cada_container.id)
-           container_name = container.attrs['Config']['Image'];
+           container_name = container.attrs['Config']['Image']
            if str(args.imagem).lower() in str(container_name).lower():
                print("Achei o container com id \'%s\' que contém a palavra \'%s\' cujo nome da imagem é: %s" % (container.short_id, args.imagem, container_name))
                counter += 1
     except Exception as e:
-        logando('Erro! Algo não saiu como esperado, analis o log para ver o que houve.', e)
+        logando('Erro! Algo não saiu como esperado, analise o log para ver o que houve.', e)
     finally:
         if(counter == 0):
             print("Nenhum container encontrado com a palavra \'%s\'" % (args.imagem))
+
+def remover_containers_binding(self):
+    """Função para remover containers com portas \'bindadas\'."""
+    counter = 0
+    try:
+       client = docker.from_env()
+       all_containers = client.containers.list()
+       for cada_container in all_containers:
+            container = client.containers.get(cada_container.id)
+            container_porta = container.attrs['HostConfig']['PortBindings']
+            if isinstance(container_porta,dict):
+                print("O container \'%s\' tem porta em \'binding\'. Parando e removendo o container..." % container.short_id)
+                container.stop()
+                container.remove()
+                print("Container \'%s\' removido com sucesso.\n" % container.short_id)
+                counter += 1
+    except docker.errors.APIErrors as e:
+        logando('Erro: api do docker retornou algum erro inesperado.', e)
+    except Exception as e:
+        logando('Erro! Algo não saiu como esperado, analise o log para ver o que houve.', e)
+    finally:
+        if(counter != 0):
+            print("%d containers foram removidos" % counter)
+        else:
+            print("Nenhum container em binding para ser removido")
 
 
 parser = argparse.ArgumentParser(description="Meu CLI docker fodástico, feito durante a aula HPD")
@@ -71,6 +97,9 @@ criar_opt.set_defaults(func=criar_container)
 procurar_opt = subparser.add_parser('procurar')
 procurar_opt.add_argument('--imagem',required=True)
 procurar_opt.set_defaults(func=procurar_container) 
+
+remover_binding_opt = subparser.add_parser('remover-binding')
+remover_binding_opt.set_defaults(func=remover_containers_binding) 
 
 cmd = parser.parse_args()
 cmd.func(cmd)
