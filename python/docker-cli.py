@@ -27,7 +27,6 @@ def criar_container(args):
 def listar(self):
     """Listando os containers e suas respectivas imgens"""
     try:
-
         client = docker.from_env()
         get_all = client.containers.list()
         for cada_container in get_all:
@@ -37,6 +36,24 @@ def listar(self):
         logando('Erro! Algo não saiu como esperado, analis o log para ver o que houve.', e)
     finally:
         print('Comando executado!')
+
+def procurar_container(args):
+    """Função para procurar containers com o nome passado""" 
+    counter = 0
+    try:
+        client = docker.from_env()
+        get_all = client.containers.list()
+        for cada_container in get_all:
+           container = client.containers.get(cada_container.id)
+           container_name = container.attrs['Config']['Image'];
+           if str(args.imagem).lower() in str(container_name).lower():
+               print("Achei o container com id \'%s\' que contém a palavra \'%s\' cujo nome da imagem é: %s" % (container.short_id, args.imagem, container_name))
+               counter += 1
+    except Exception as e:
+        logando('Erro! Algo não saiu como esperado, analis o log para ver o que houve.', e)
+    finally:
+        if(counter == 0):
+            print("Nenhum container encontrado com a palavra \'%s\'" % (args.imagem))
 
 
 parser = argparse.ArgumentParser(description="Meu CLI docker fodástico, feito durante a aula HPD")
@@ -50,6 +67,10 @@ criar_opt.add_argument('--imagem',required=True)
 criar_opt.add_argument('--comando',required=False)
 criar_opt.add_argument('--detach',action='store_true',required=False,default=False)
 criar_opt.set_defaults(func=criar_container) 
+
+procurar_opt = subparser.add_parser('procurar')
+procurar_opt.add_argument('--imagem',required=True)
+procurar_opt.set_defaults(func=procurar_container) 
 
 cmd = parser.parse_args()
 cmd.func(cmd)

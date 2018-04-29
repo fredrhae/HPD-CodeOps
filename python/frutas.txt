@@ -1,0 +1,9 @@
+banana
+laranja
+maca
+morango
+abacate
+uva
+pessego
+coco
+kiwi

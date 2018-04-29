@@ -1,0 +1,311 @@
+e [codeops/HPD-CodeOps/python] at  develop ?
+→ bpython                                                             [099f1d9]
+bpython version 0.17.1 on top of Python 3.5.2 /home/fredRhae/Documents/codeops/HPD-CodeOps/python/venv/bin/python3
+>>> filename = "~/Documents/codeops/HPD-CodeOps/python/frutas.txt"
+>>> file = open(filename,"r")
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    file = open(filename,"r")
+FileNotFoundError: [Errno 2] No such file or directory: '~/Documents/codeops/HPD
+-CodeOps/python/frutas.txt'
+>>> filename = "/home/fredRhae/Documents/codeops/HPD-CodeOps/python/frutas.txt"
+>>> file = open(filename,"r")
+>>> file.read()
+'abacate\nmelancia\nabacaxi\nmamao\nmaracuja\nuva\nacerola\nlaranja\ngoiaba\nkiw
+i\n'
+>>> file.read()
+''
+>>> file.close()
+>>> file = open(filename,"r")
+>>> file.readline()
+'abacate\n'
+>>> file.readline()
+'melancia\n'
+>>> file.readline()
+'abacaxi\n'
+>>> file.readline()
+'mamao\n'
+>>> file.readline()
+'maracuja\n'
+>>> file.readline()
+'uva\n'
+>>> file.readline()
+'acerola\n'
+>>> file.readline()
+'laranja\n'
+>>> file.readline()
+'goiaba\n'
+>>> file.readline()
+'kiwi\n'
+>>> file.readline()
+''
+>>> file.readline()
+''
+>>> file.close()
+>>> file.open(filename,"r")
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    file.open(filename,"r")
+AttributeError: '_io.TextIOWrapper' object has no attribute 'open'
+>>> file = open(filename,"r")
+>>> file.readlines()
+['abacate\n', 'melancia\n', 'abacaxi\n', 'mamao\n', 'maracuja\n', 'uva\n', 'acer
+ola\n', 'laranja\n', 'goiaba\n', 'kiwi\n']
+>>> file.close()
+>>> file = open(filename,"r")
+>>> for linha in file:
+...     print(linha)
+...     
+... 
+abacate
+melancia
+abacaxi
+mamao
+maracuja
+uva
+acerola
+laranja
+goiaba
+kiwi
+>>> file.close()
+>>> file = open(filename,"r")
+>>> file.newlines()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    file.newlines()
+TypeError: 'NoneType' object is not callable
+>>> file.newlines
+>>> file.seek("mamao")
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    file.seek("mamao")
+TypeError: unorderable types: str() < int()
+>>> file.readlines()
+['abacate\n', 'melancia\n', 'abacaxi\n', 'mamao\n', 'maracuja\n', 'uva\n', 'acer
+ola\n', 'laranja\n', 'goiaba\n', 'kiwi\n']
+>>> file.read
+<built-in method read of _io.TextIOWrapper object at 0x7f8caf431990>
+>>> file.read()
+''
+>>> file.seek(0,0)
+0
+>>> file.readline()
+'abacate\n'
+>>> file.seek(0,0)
+0
+>>> file.name
+'/home/fredRhae/Documents/codeops/HPD-CodeOps/python/frutas.txt'
+>>> file.tell
+<built-in method tell of _io.TextIOWrapper object at 0x7f8caf431990>
+>>> file.tell()
+0
+>>> file.readable
+<built-in method readable of _io.TextIOWrapper object at 0x7f8caf431990>
+>>> file.readable()
+True
+>>> file.readline()
+'abacate\n'
+>>> file.tell()
+8
+>>> file.readlines()
+['melancia\n', 'abacaxi\n', 'mamao\n', 'maracuja\n', 'uva\n', 'acerola\n', 'lara
+nja\n', 'goiaba\n', 'kiwi\n']
+>>> file.newlines()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    file.newlines()
+TypeError: 'str' object is not callable
+>>> file.newlines
+'\n'
+>>> file.write("Olá hidelbrandos")
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    file.write("Olá hidelbrandos")
+io.UnsupportedOperation: not writable
+>>> file.close()
+>>> file = open(filename,"w")
+>>> file.readlines()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    file.readlines()
+io.UnsupportedOperation: not readable
+>>> file.close()
+>>> file = open(filename,"wr")
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    file = open(filename,"wr")
+ValueError: must have exactly one of create/read/write/append mode
+>>> file = open(filename,"w")
+>>> file.write("Opa, foi mal")
+12
+>>> file.newlines
+>>> file.write("Opa, foi mal de novo")
+20
+>>> file.newlines
+>>> file.write("Opa, foi mal de novo. Sou muito desastrado!")
+43
+>>> file.close()
+>>> file = open(filename,"r")
+>>> file.readlines()
+['Opa, foi malOpa, foi mal de novoOpa, foi mal de novo. Sou muito desastrado!']
+>>> file.close()
+>>> 
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→ vim frutas.txt                                                      [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→ bpython                                                             [099f1d9]
+bpython version 0.17.1 on top of Python 3.5.2 /home/fredRhae/Documents/codeops/HPD-CodeOps/python/venv/bin/python3
+>>> filename = "/home/fredRhae/Documents/codeops/HPD-CodeOps/python/frutas.txt"
+>>> with open(filename,'r') as file:
+...     dados = file.read()
+...     print(dados)
+...     
+... 
+uva
+pessego
+mamao
+maca
+banana
+morango
+abacate
+coco
+>>> with open(filename,"w") as file:
+...     for i in range(1,10):
+...         file.write("Escrevendo a linha %s no arquivo\n" % str(i))
+...         
+...     
+... 
+32
+32
+32
+32
+32
+32
+32
+32
+32
+>>> with open(filename,"r") as file:
+...     dados = file.read()
+...     print(dados)
+...     
+... 
+Escrevendo a linha 1 no arquivo
+Escrevendo a linha 2 no arquivo
+Escrevendo a linha 3 no arquivo
+Escrevendo a linha 4 no arquivo
+Escrevendo a linha 5 no arquivo
+Escrevendo a linha 6 no arquivo
+Escrevendo a linha 7 no arquivo
+Escrevendo a linha 8 no arquivo
+Escrevendo a linha 9 no arquivo
+>>> with open(filename,'a') as file:
+...     for i in range(1,10):
+...         file.write("Apendando a linha %s no arquivo\n" % str(i))
+...         
+...     
+... 
+31
+31
+31
+31
+31
+31
+31
+31
+31
+>>> with open(filename,"r") as file:
+...     dados = file.read()
+...     print(dados)
+...     
+... 
+Escrevendo a linha 1 no arquivo
+Escrevendo a linha 2 no arquivo
+Escrevendo a linha 3 no arquivo
+Escrevendo a linha 4 no arquivo
+Escrevendo a linha 5 no arquivo
+Escrevendo a linha 6 no arquivo
+Escrevendo a linha 7 no arquivo
+Escrevendo a linha 8 no arquivo
+Escrevendo a linha 9 no arquivo
+Apendando a linha 1 no arquivo
+Apendando a linha 2 no arquivo
+Apendando a linha 3 no arquivo
+Apendando a linha 4 no arquivo
+Apendando a linha 5 no arquivo
+Apendando a linha 6 no arquivo
+Apendando a linha 7 no arquivo
+Apendando a linha 8 no arquivo
+Apendando a linha 9 no arquivo
+>>> 
+>>> 
+>>> ls
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    ls
+NameError: name 'ls' is not defined
+>>> with open(filename,"r") as file:
+...     for linhas in file:
+... 
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→ vim frutas.txt                                                      [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→ cp frutas.txt teste_escrita.txt                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→ vim frutas.txt                                                      [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→                                                                     [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop ?
+→ vim docker-cli.py                                                   [099f1d9]
+(venv) 
+λ fredRhae [codeops/HPD-CodeOps/python] at  develop !?
+→ bpython                                                             [099f1d9]
+bpython version 0.17.1 on top of Python 3.5.2 /home/fredRhae/Documents/codeops/HPD-CodeOps/python/venv/bin/python3
+>>> import datetime
+>>> data_atual = datetime.now()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    data_atual = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+>>> datetime.datetime.now()
+datetime.datetime(2018, 4, 29, 10, 9, 12, 294014)
+>>> from datetime import datetime
+>>> datetime.now()
+datetime.datetime(2018, 4, 29, 10, 9, 45, 834799)
+>>> datetime.now().strftime('%d/%m/%Y %H:%M')
+'29/04/2018 10:10'
+>>> 
+
