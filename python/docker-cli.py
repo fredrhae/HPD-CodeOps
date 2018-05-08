@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import docker, argparse
+import docker, argparse, sys
 from datetime import datetime
 
 def logando(mensagem, e, lofile='docker-cli.log'):
@@ -65,7 +65,7 @@ def remover_containers_binding(self):
        for cada_container in all_containers:
             container = client.containers.get(cada_container.id)
             container_porta = container.attrs['HostConfig']['PortBindings']
-            if isinstance(container_porta,dict):
+            if isinstance(container_porta,dict) and container_porta != {}:
                 print("O container \'%s\' tem porta em \'binding\'. Parando e removendo o container..." % container.short_id)
                 container.stop()
                 container.remove()
@@ -100,6 +100,11 @@ procurar_opt.set_defaults(func=procurar_container)
 
 remover_binding_opt = subparser.add_parser('remover-binding')
 remover_binding_opt.set_defaults(func=remover_containers_binding) 
+
+if len(sys.argv[1:]) == 0:
+    parser.print_help()
+    parser.print_usage()
+    parser.exit()
 
 cmd = parser.parse_args()
 cmd.func(cmd)
